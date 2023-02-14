@@ -1,22 +1,11 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import Products from './Products';
 
-interface Product {
-  id: number;
-  name: string;
-  author: string;
-  price: number;
-  imageUrl: string;
-}
-
-interface Props {
-  products: Product[];
-}
-
-const ProductList: React.FC<Props> = ({ products }) => {
+const ProductList: React.FC = () => {
   return (
     <div className="d-flex flex-wrap">
-      {products.map((product) => (
+      {Products.map((product) => (
         <Card key={product.id} className="m-3" style={{ width: '18rem' }}>
           <Card.Img variant="top" src={product.imageUrl} />
           <Card.Body>

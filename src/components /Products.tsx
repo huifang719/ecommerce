@@ -1,32 +1,69 @@
-const Products: Product[] = [{
-  id: 1,
-  name: "Harry Potter",
-  author: "Rose p lin",
-  price: 24.98,
-  imageUrl:'https://images.unsplash.com/photo-1670272506152-6f2703532cd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'}, 
+const Products: Product[] = [
   {
-    id: 2,
-    name: "Harry Potter 2",
-    author: "Rose p lin",
+    OLID: "OL26992991M",
+    name: "A Court of Mist and Fury",
+    author: "Sarah J. Maas",
+    price: 37.97,
+    imageUrl:'https://covers.openlibrary.org/b/id/13316297-L.jpg'}, 
+  {
+    OLID: "OL7826547M",
+    name: "A Game of Thrones",
+    author: "George R. R. Martin",
+    price: 45.98,
+    imageUrl:'https://covers.openlibrary.org/b/id/11291394-L.jpg'},
+  {
+    OLID: "OL3959762M",
+    name: "Charlotte's Web",
+    author: "E. B. White",
     price: 25.98,
-    imageUrl:'https://images.unsplash.com/photo-1670272506152-6f2703532cd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'},
-    {
-      id: 3,
-      name: "Harry Potter 3",
-      author: "Rose p lin",
-      price: 25.98,
-      imageUrl:'https://images.unsplash.com/photo-1670272506152-6f2703532cd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'},
-      {
-        id: 4,
-        name: "Harry Potter 4",
-        author: "Rose p lin",
-        price: 25.98,
-        imageUrl:'https://images.unsplash.com/photo-1670272506152-6f2703532cd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'}
-      
+    imageUrl:'https://covers.openlibrary.org/b/id/8311468-L.jpg'
+  },
+  {
+    OLID: "OL30614384M",
+    name: "Think Like a Monk",
+    author: "Jay Shetty",
+    price: 27.58,
+    imageUrl:'https://covers.openlibrary.org/b/id/10476383-L.jpg'
+  },
+  {
+    OLID: "OL25418184M",
+    name: "Men are from Mars, women are from Venus",
+    author: "John Gray",
+    price: 20.99,
+    imageUrl:'https://covers.openlibrary.org/b/id/9449958-L.jpg'
+  }, 
+  {
+    OLID: "OL29412746M",
+    name: "The Psychology of Money",
+    author: "Morgan Housel",
+    price: 18.58,
+    imageUrl:'https://covers.openlibrary.org/b/id/12824425-L.jpg'
+  },
+  {
+    OLID: "OL25439048M",
+    name: "Ignite Me",
+    author: "Tahereh Mafi",
+    price: 15.99,
+    imageUrl:'https://covers.openlibrary.org/b/id/7272906-L.jpg'
+  },
+  {
+    OLID: "OL38061727M",
+    name: "It Ends with Us, It Starts with Us",
+    author: "Colleen Hoover",
+    price: 34.25,
+    imageUrl:'https://covers.openlibrary.org/b/id/12920899-L.jpg'
+  },
+  {
+    OLID: "OL32532952M",
+    name: "Better Than the Movies",
+    author: "Lynn Painter",
+    price: 22.99,
+    imageUrl:'https://covers.openlibrary.org/b/id/11182600-L.jpg'
+  },  
 ];
 
 interface Product {
-  id: number;
+  OLID: string;
   name: string;
   author: string;
   price: number;

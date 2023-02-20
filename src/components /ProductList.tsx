@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const ProductList: React.FC = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 8,
     slidesToScroll: 1,
@@ -47,12 +47,15 @@ const ProductList: React.FC = () => {
   return (
     <Container className="pt-1">
       <h6 style={{ textAlign: 'center' }}>Trending Books</h6>
-      <Slider {...settings}>
+      <Slider {...settings} >
         {Products.map((product, index) => (
-        <Image 
-          key={index}
+        <Container key={index} style={{paddingRight: 40}} >
+          <Image 
           src={product.imageUrl} 
-          height={200} />
+          height={200} 
+          style={{display:"inline-block" }} />
+        </Container>
+        
       ))}
           
       </Slider>

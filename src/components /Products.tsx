@@ -12,18 +12,18 @@ const Products: Product[] = [
     price: 45.98,
     imageUrl:'https://covers.openlibrary.org/b/id/11291394-L.jpg'},
   {
-    OLID: "OL3959762M",
-    name: "Charlotte's Web",
-    author: "E. B. White",
+    OLID: "OL24896701M",
+    name: "Thinking, fast and slow",
+    author: "Daniel Kahneman",
     price: 25.98,
-    imageUrl:'https://covers.openlibrary.org/b/id/8311468-L.jpg'
+    imageUrl:'https://covers.openlibrary.org/b/id/7089298-L.jpg'
   },
   {
-    OLID: "OL30614384M",
-    name: "Think Like a Monk",
-    author: "Jay Shetty",
+    OLID: "OL38010863M",
+    name: "Twisted Lies",
+    author: "Ana Huang",
     price: 27.58,
-    imageUrl:'https://covers.openlibrary.org/b/id/10476383-L.jpg'
+    imageUrl:'https://covers.openlibrary.org/b/id/12816871-L.jpg'
   },
   {
     OLID: "OL25418184M",

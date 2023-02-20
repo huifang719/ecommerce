@@ -12,6 +12,7 @@ const ProductList: React.FC = () => {
     slidesToShow: 8,
     slidesToScroll: 1,
     pauseOnHover: true,
+    centerPadding: "10px",
     autoplay: true,
     speed: 2000,
     autoplaySpeed: 2000,
@@ -49,11 +50,11 @@ const ProductList: React.FC = () => {
       <h6 style={{ textAlign: 'center' }}>Trending Books</h6>
       <Slider {...settings} >
         {Products.map((product, index) => (
-        <Container key={index} style={{paddingRight: 40}} >
-          <Image 
-          src={product.imageUrl} 
-          height={200} 
-          style={{display:"inline-block" }} />
+        <Container key={index} style={{width: "120px", height: "auto"}} >
+          <Image fluid
+            src={product.imageUrl} 
+            height={200}  
+           />
         </Container>
         
       ))}

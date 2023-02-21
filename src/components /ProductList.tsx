@@ -6,7 +6,7 @@ import {TrendingBooks, classicBooks} from './Products';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ProductList: React.FC = () => {
   
@@ -57,21 +57,12 @@ const ProductList: React.FC = () => {
           <Slider {...settings} >
             {TrendingBooks.map((product, index) => (
             <Container key={index} style={{width: "120px", height: "auto"}} >
-              <OverlayTrigger 
-                trigger="click" 
-                placement="bottom" 
-                overlay={
-                  <Popover id="popover-basic" className='d-inline-flex'>
-                    <h6>${product.price}</h6>
-                    <Button style={{backgroundColor:"transparent"}}><FaCartPlus /></Button>
-                  </Popover>
-                }>
+              <Link to={`/details/${product.OLID}`}>
                 <Image fluid
                   src={product.imageUrl} 
                   height={200} 
-    
                 />
-              </OverlayTrigger>
+              </Link>        
             </Container> 
             ))}        
           </Slider>
@@ -81,21 +72,12 @@ const ProductList: React.FC = () => {
           <Slider {...settings} >
             {classicBooks.map((product, index) => (
             <Container key={index} style={{width: "120px", height: "auto"}} >
-              <OverlayTrigger 
-                trigger="click" 
-                placement="bottom" 
-                overlay={
-                  <Popover id="popover-basic" className='d-inline-flex'>
-                    <h6>${product.price}</h6>
-                    <Button style={{backgroundColor:"transparent"}} ><FaCartPlus /></Button>
-                  </Popover>
-                }>
+              <Link to={`/details/${product.OLID}`}>
                 <Image fluid
                   src={product.imageUrl} 
                   height={200} 
-    
                 />
-              </OverlayTrigger>
+              </Link>         
             </Container> 
             ))}        
           </Slider>

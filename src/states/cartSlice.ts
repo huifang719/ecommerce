@@ -7,17 +7,17 @@ interface Item {
   price: number | null;
 }
 interface CartState {
-  cart: Item []
+  value: Item []
 }
 
-const initialState: CartState = {cart: []}; 
+const initialState: CartState = {value: []}; 
 
 const cartSlice = createSlice({
   name: "Cart", 
   initialState, 
   reducers: {
     addItem: (state, action) => {
-      state.cart.push(action.payload);
+      state.value.push(action.payload);
     }   
   }
 })

@@ -3,6 +3,7 @@ import NavigationBar from './components /NavigationBar';
 import { Routes, Route } from 'react-router-dom';
 import Members from './components /Members';
 import Home from './components /Home';
+import Details from './components /Details';
 
 const App: React.FC = () => {
 
@@ -14,6 +15,7 @@ const App: React.FC = () => {
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/members" element={<Members />} />
+          <Route path={`/:id`}  element={<Details />} />
       </Routes>
     </div>
   );

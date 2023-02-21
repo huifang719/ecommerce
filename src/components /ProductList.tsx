@@ -1,11 +1,15 @@
 import React from 'react';
-import { Card, Button, Container, Image } from 'react-bootstrap';
-import Products from './Products';
+import { Card, Button, Container, Image, OverlayTrigger, Popover, Row } from 'react-bootstrap';
+import { FaCartPlus } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
+import {TrendingBooks, classicBooks} from './Products';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useNavigate } from 'react-router-dom';
 
 const ProductList: React.FC = () => {
+  
   const settings = {
     dots: false,
     infinite: true,
@@ -47,19 +51,57 @@ const ProductList: React.FC = () => {
 
   return (
     <Container className="pt-1">
-      <h6 style={{ textAlign: 'center' }}>Trending Books</h6>
-      <Slider {...settings} >
-        {Products.map((product, index) => (
-        <Container key={index} style={{width: "120px", height: "auto"}} >
-          <Image fluid
-            src={product.imageUrl} 
-            height={200}  
-           />
-        </Container>
+      <IconContext.Provider value={{ size: '1rem', color: 'black' }}>
+        <Row>
+          <h6 style={{ textAlign: 'center' }}>Trending Books</h6>
+          <Slider {...settings} >
+            {TrendingBooks.map((product, index) => (
+            <Container key={index} style={{width: "120px", height: "auto"}} >
+              <OverlayTrigger 
+                trigger="click" 
+                placement="bottom" 
+                overlay={
+                  <Popover id="popover-basic" className='d-inline-flex'>
+                    <h6>${product.price}</h6>
+                    <Button style={{backgroundColor:"transparent"}}><FaCartPlus /></Button>
+                  </Popover>
+                }>
+                <Image fluid
+                  src={product.imageUrl} 
+                  height={200} 
+    
+                />
+              </OverlayTrigger>
+            </Container> 
+            ))}        
+          </Slider>
+        </Row>
+        <Row>
+          <h6 style={{ textAlign: 'center' }}>Classic</h6>
+          <Slider {...settings} >
+            {classicBooks.map((product, index) => (
+            <Container key={index} style={{width: "120px", height: "auto"}} >
+              <OverlayTrigger 
+                trigger="click" 
+                placement="bottom" 
+                overlay={
+                  <Popover id="popover-basic" className='d-inline-flex'>
+                    <h6>${product.price}</h6>
+                    <Button style={{backgroundColor:"transparent"}}><FaCartPlus /></Button>
+                  </Popover>
+                }>
+                <Image fluid
+                  src={product.imageUrl} 
+                  height={200} 
+    
+                />
+              </OverlayTrigger>
+            </Container> 
+            ))}        
+          </Slider>
+        </Row>  
         
-      ))}
-          
-      </Slider>
+      </IconContext.Provider>
     </Container>
   );
 };

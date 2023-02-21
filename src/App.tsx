@@ -7,8 +7,8 @@ import Details from './components /Details';
 import { Provider } from 'react-redux';
 import { store } from './store';
 
-const App: React.FC = () => {
 
+const App: React.FC = () => {
   return (
     <div className="App">
       <Provider store={store} >

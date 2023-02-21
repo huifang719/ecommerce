@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface UserStateValue {
-  userName: string | null;
+  email: string | null;
 }
 interface UserState {
   value: UserStateValue; 
 }
-const initialState = {value: { userName: null }} as UserState
+const initialState = {value: { email: null }} as UserState
 
 const userSlice = createSlice({
   name: "User", 

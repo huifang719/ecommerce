@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Button }from 'react-bootstrap';
 import { login, logout } from '../states/userSlice'; 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 interface FormState {
   email: string;
@@ -12,6 +12,8 @@ const SignIn: React.FC = () => {
   const [formState, setFormState] = useState<FormState>({ email: '', password: '' });
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const dispatch = useDispatch();
+  const loggedInEmail = useSelector((state: any) => state.user.value)
+  console.log(loggedInEmail)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
@@ -20,8 +22,7 @@ const SignIn: React.FC = () => {
   const handleSignIn = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
     console.log(formState)
-
-    dispatch(login([]))
+    dispatch(login({email: formState.email}))
   }
 
   return (

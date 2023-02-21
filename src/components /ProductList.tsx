@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 const ProductList: React.FC = () => {
   
   const settings = {
-    dots: false,
+    dot: false,
     infinite: true,
     slidesToShow: 8,
     slidesToScroll: 1,
@@ -28,7 +28,7 @@ const ProductList: React.FC = () => {
           slidesToShow: 6,
           slidesToScroll: 3,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -52,7 +52,7 @@ const ProductList: React.FC = () => {
   return (
     <Container className="pt-1">
       <IconContext.Provider value={{ size: '1rem', color: 'black' }}>
-        <Row>
+        <Row className='mb-3'>
           <h6 style={{ textAlign: 'center' }}>Trending Books</h6>
           <Slider {...settings} >
             {TrendingBooks.map((product, index) => (
@@ -99,8 +99,7 @@ const ProductList: React.FC = () => {
             </Container> 
             ))}        
           </Slider>
-        </Row>  
-        
+        </Row>    
       </IconContext.Provider>
     </Container>
   );

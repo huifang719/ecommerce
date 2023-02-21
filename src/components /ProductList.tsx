@@ -87,7 +87,7 @@ const ProductList: React.FC = () => {
                 overlay={
                   <Popover id="popover-basic" className='d-inline-flex'>
                     <h6>${product.price}</h6>
-                    <Button style={{backgroundColor:"transparent"}}><FaCartPlus /></Button>
+                    <Button style={{backgroundColor:"transparent"}} ><FaCartPlus /></Button>
                   </Popover>
                 }>
                 <Image fluid

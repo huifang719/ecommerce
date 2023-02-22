@@ -12,12 +12,12 @@ const NavigationBar: React.FC = () => {
   return (
     <Navbar bg="light" expand="lg" expanded={expanded}>
       <Container fluid>
-        <Navbar.Brand href="#home">Bookish</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" >Bookish</Navbar.Brand>
         <Navbar.Toggle onClick={() => setExpanded(expanded ? false : true)} aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-space-evenly" >
             <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/">Home</Nav.Link>
-            <Nav.Link onClick={() => setExpanded(false)} href="#products">Products</Nav.Link>
+            <Nav.Link onClick={() => setExpanded(false)} as={Link} to="./products">Products</Nav.Link>
             <Nav.Link onClick={() => setExpanded(false)} as={Link} to="./members">Members</Nav.Link>
           </Nav>
           <Form className="d-inline-flex search">

@@ -27,7 +27,9 @@ const NavigationBar: React.FC = () => {
             <Row>
               <Col xs={8} lg={6} md={10} className="cart">
                 <IconContext.Provider value={{ size: '2.5rem', color: 'black' }}>
-                  <FaCartArrowDown href="/" />
+                  <Link to="/cart">
+                    <FaCartArrowDown />
+                  </Link>
                 </IconContext.Provider>
               </Col>
               <Col xs={4} lg={6} md={2} style={{alignSelf: "flex-end", justifySelf:"flex-end"}} >

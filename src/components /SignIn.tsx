@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Button }from 'react-bootstrap';
-import { login, logout } from '../states/userSlice'; 
+import { login, logout } from '../features/userSlice'; 
 import { useDispatch, useSelector } from 'react-redux';
 
 interface FormState {

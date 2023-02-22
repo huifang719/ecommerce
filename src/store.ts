@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import userSlice from './states/userSlice'
-import cartSlice from './states/cartSlice'
-import searchSlice from './states/searchSlice'
+import userSlice from './features/userSlice'
+import cartSlice from './features/cartSlice'
+import searchSlice from './features/searchSlice'
 
 console.log(userSlice)
 export const store = configureStore({

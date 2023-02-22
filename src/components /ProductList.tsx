@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Button, Container, Image, OverlayTrigger, Popover, Row } from 'react-bootstrap';
-import { FaCartPlus } from 'react-icons/fa';
-import { IconContext } from 'react-icons';
+import "../App.css"
 import {TrendingBooks, classicBooks} from './Products';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -11,9 +10,9 @@ import { Link } from 'react-router-dom';
 const ProductList: React.FC = () => {
   
   const settings = {
-    dot: false,
+    dots: false,
     infinite: true,
-    slidesToShow: 8,
+    slidesToShow: 9,
     slidesToScroll: 1,
     pauseOnHover: true,
     centerPadding: "10px",
@@ -51,38 +50,36 @@ const ProductList: React.FC = () => {
 
   return (
     <Container className="pt-1">
-      <IconContext.Provider value={{ size: '1rem', color: 'black' }}>
-        <Row className='mb-3'>
-          <h6 style={{ textAlign: 'center' }}>Trending Books</h6>
-          <Slider {...settings} >
-            {TrendingBooks.map((product, index) => (
-            <Container key={index} style={{width: "120px", height: "auto"}} >
-              <Link to={`/details/${product.OLID}`}>
-                <Image fluid
-                  src={product.imageUrl} 
-                  height={200} 
-                />
-              </Link>        
-            </Container> 
-            ))}        
-          </Slider>
-        </Row>
-        <Row>
-          <h6 style={{ textAlign: 'center' }}>Classic</h6>
-          <Slider {...settings} >
-            {classicBooks.map((product, index) => (
-            <Container key={index} style={{width: "120px", height: "auto"}} >
-              <Link to={`/details/${product.OLID}`}>
-                <Image fluid
-                  src={product.imageUrl} 
-                  height={200} 
-                />
-              </Link>         
-            </Container> 
-            ))}        
-          </Slider>
-        </Row>    
-      </IconContext.Provider>
+      <Row>
+        <h6 style={{ textAlign: 'center' }}>Trending Books</h6>
+        <Slider {...settings} >
+          {TrendingBooks.map((product, index) => (
+          <Container key={index} style={{width: "5rem", height: "auto"}} >
+            <Link to={`/details/${product.OLID}`}>
+              <Image fluid
+                src={product.imageUrl} 
+                height={200} 
+              />
+            </Link>        
+          </Container> 
+          ))}        
+        </Slider>
+      </Row>
+      <Row>
+        <h6 style={{ textAlign: 'center' }}>Classic</h6>
+        <Slider {...settings} >
+          {classicBooks.map((product, index) => (
+          <Container key={index} style={{width: "5rem", height: "auto"}} >
+            <Link to={`/details/${product.OLID}`}>
+              <Image fluid
+                src={product.imageUrl} 
+                height={120} 
+              />
+            </Link>         
+          </Container> 
+          ))}        
+        </Slider>
+      </Row>       
     </Container>
   );
 };

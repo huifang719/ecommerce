@@ -12,12 +12,12 @@ const NavigationBar: React.FC = () => {
   return (
     <Navbar bg="light" expand="lg" expanded={expanded}>
       <Container fluid>
-        <Navbar.Brand as={Link} to="/" >Bookish</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">Bookish</Navbar.Brand>
         <Navbar.Toggle onClick={() => setExpanded(expanded ? false : true)} aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-space-evenly" >
             <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/">Home</Nav.Link>
-            <Nav.Link onClick={() => setExpanded(false)} as={Link} to="./products">Products</Nav.Link>
+            <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/products">Products</Nav.Link>
             <Nav.Link onClick={() => setExpanded(false)} as={Link} to="./members">Members</Nav.Link>
           </Nav>
           <Form className="d-inline-flex search">
@@ -25,13 +25,13 @@ const NavigationBar: React.FC = () => {
             <Button variant="outline-success">Search</Button>
           </Form>
             <Row>
-              <Col xs={8} lg={6} md={6} className="cart">
+              <Col xs={8} lg={6} md={10} className="cart">
                 <IconContext.Provider value={{ size: '2.5rem', color: 'black' }}>
                   <FaCartArrowDown href="/" />
                 </IconContext.Provider>
               </Col>
-              <Col xs={4} lg={6} md={6} style={{alignSelf: "flex-end"}} >
-                <Container className="social">
+              <Col xs={4} lg={6} md={2} style={{alignSelf: "flex-end", justifySelf:"flex-end"}} >
+                <Container className="social" >
                   <IconContext.Provider value={{ size: '1rem', color: 'black' }}>
                     <Col>
                       <a href="./"><FaFacebook /></a>

@@ -8,7 +8,6 @@ import { removeItem, updateItem } from '../features/cartSlice';
 const Cart: React.FC = () => {
   const dispatch = useDispatch()
   const CartItems = useSelector((state: any) => state.cart.value)
-  const totalItems = CartItems.reduce((total: number, item: any) => total + item.quantity, 0)
   const totalPrice = CartItems.reduce((total: number, item: any) => total + item.quantity * item.price, 0)
 
   const handleRemove = (index: number) : void => {
@@ -17,8 +16,13 @@ const Cart: React.FC = () => {
   }
 
   const handleDeduction = (index: number) : void => {
-    const updatedBook = {...CartItems[index], quantity: CartItems[index].quantity - 1 }
-    dispatch(updateItem(updatedBook))
+    const id = CartItems[index].id
+    if (CartItems[index].quantity > 1){
+      const updatedBook = {...CartItems[index], quantity: CartItems[index].quantity - 1 }
+      dispatch(updateItem(updatedBook))
+    } else (
+      dispatch(removeItem({id}))
+    )
   }
 
   const handleAddition = (index: number) : void => {

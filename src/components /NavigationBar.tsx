@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Form, FormControl, Button, Container, Row, Col } from "react-bootstrap";
+import { Navbar, Nav, Form, FormControl, Button, Container, Row, Col, Badge } from "react-bootstrap";
 import {
   FaFacebook, FaInstagram, FaTwitter, FaCartArrowDown
 } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 import { Link } from 'react-router-dom';
 import "../App.css"
+import { useSelector } from 'react-redux';
 
 const NavigationBar: React.FC = () => {
   const [expanded, setExpanded] = useState(false);
+  const CartItems = useSelector((state: any) => state.cart.value)
+  const totalItems = CartItems.reduce((total: number, item: any) => total + item.quantity, 0)
   return (
     <Navbar bg="light" expand="lg" expanded={expanded}>
       <Container fluid>
@@ -28,7 +31,7 @@ const NavigationBar: React.FC = () => {
               <Col xs={8} lg={6} md={10} className="cart">
                 <IconContext.Provider value={{ size: '2.5rem', color: 'black' }}>
                   <Link to="/cart">
-                    <FaCartArrowDown />
+                    <FaCartArrowDown /><Badge pill bg="dark" style={totalItems > 0? {width: "3rem"}: {display: "none"}}>{totalItems}</Badge>
                   </Link>
                 </IconContext.Provider>
               </Col>

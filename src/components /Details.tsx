@@ -13,26 +13,16 @@ const Details: React.FC = () => {
   const id = useParams().id
   const displayBook = bookInventroy.filter(book => book.OLID === id)[0]
   const OLID = displayBook.OLID
-  const checkItem = (OLID: string) : any=> {
-    let existItem: null | boolean = null;
-    cartItems.forEach((element: any) => { 
-      if (element.OLID === OLID) {
-        existItem = true
-      } else {
-        existItem = false
-      }  
-    });  
-    return existItem
-  }
+  
+  console.log(cartItems)
   const addToCart = (): void => {
-    const item = checkItem(OLID)
-    console.log(item)
-    if (!item) {
-      dispatch(addItem({id: displayBook.OLID, name: displayBook.name, imageUrl: displayBook.imageUrl, quantity: 1, price: displayBook.price }))
+    let existItem = cartItems.filter((element: any) => element.id === OLID)
+    if (existItem.length > 0) {
+      const selectBook = existItem[0]
+      console.log(selectBook)
+      dispatch(updateItem({...selectBook, quantity: selectBook.quantity + 1}))
     } else {
-      const selectedBook = cartItems.filter((book:any)=> book.OLID === displayBook.OLID)[0]
-      console.log(selectedBook)
-      dispatch(updateItem({...selectedBook, quantity: selectedBook.quantity + 1}))
+      dispatch(addItem({id: displayBook.OLID, name: displayBook.name, imageUrl: displayBook.imageUrl, quantity: 1, price: displayBook.price }))
     }
   }  
 

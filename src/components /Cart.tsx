@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cartSlice from '../features/cartSlice';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
@@ -10,22 +10,20 @@ const Cart: React.FC = () => {
   const CartItems = useSelector((state: any) => state.cart.value)
   const totalItems = CartItems.reduce((total: number, item: any) => total + item.quantity, 0)
   const totalPrice = CartItems.reduce((total: number, item: any) => total + item.quantity * item.price, 0)
-  console.log(totalItems)
-  console.log(totalPrice)
 
   const handleRemove = (index: number) : void => {
-    const itemId = CartItems[index].id
-    dispatch(removeItem(itemId))
+    const id = CartItems[index].id
+    dispatch(removeItem({id}))
   }
 
   const handleDeduction = (index: number) : void => {
-    const selectedBook = CartItems[index]
-    dispatch(updateItem({id: selectedBook.OLID, name: selectedBook.name, imageUrl: selectedBook.imageUrl, quantity: selectedBook.quantity - 1, price: selectedBook.price}))
+    const updatedBook = {...CartItems[index], quantity: CartItems[index].quantity - 1 }
+    dispatch(updateItem(updatedBook))
   }
 
   const handleAddition = (index: number) : void => {
-    const selectedBook = CartItems[index]
-    dispatch(updateItem({id: selectedBook.OLID, name: selectedBook.name, imageUrl: selectedBook.imageUrl, quantity: selectedBook.quantity + 1, price: selectedBook.price}))
+    const updatedBook = {...CartItems[index], quantity: CartItems[index].quantity+1 }
+    dispatch(updateItem(updatedBook))
   }
 
   return (

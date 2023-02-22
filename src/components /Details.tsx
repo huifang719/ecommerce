@@ -13,21 +13,16 @@ const Details: React.FC = () => {
   const id = useParams().id
   const displayBook = bookInventroy.filter(book => book.OLID === id)[0]
   
-  const checkItem = (): boolean => {
-    return cartItems.forEach((element: any) => { 
-      if (element.OLID === displayBook.OLID) {
-        return true
-      }
-      return false
-    }); 
+  const checkItem = () : any=> {
+    return cartItems.filter((element: any) => element.OLID === displayBook.OLID); 
   }
   const addToCart = () => {
     const item = checkItem()
-    const itemId = displayBook.OLID
-    if (!item) {
+    console.log(item)
+    if (item.length === 0) {
       dispatch(addItem({id: displayBook.OLID, name: displayBook.name, imageUrl: displayBook.imageUrl, quantity: 1, price: displayBook.price }))
-    } else {
-      dispatch(updateItem({id: displayBook.OLID, name: displayBook.name, imageUrl: displayBook.imageUrl, quantity:  cartItems, price: displayBook.price}))
+    } else { 
+      dispatch(updateItem({...item[0], quantity: item[0].quantity + 1}))
     }
   }  
 

@@ -11,9 +11,7 @@ interface CartState {
   value: Item []
 }
 
-const initialState: CartState = {value: [
-  
-]}; 
+const initialState: CartState = {value: []}; 
 
 const cartSlice = createSlice({
   name: "Cart", 

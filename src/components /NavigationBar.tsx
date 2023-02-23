@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Form, FormControl, Button, Container, Row, Col, Badge } from "react-bootstrap";
+import { Navbar, Nav, Container, Row, Col, Badge } from "react-bootstrap";
 import {
   FaFacebook, FaInstagram, FaTwitter, FaCartArrowDown
 } from 'react-icons/fa';

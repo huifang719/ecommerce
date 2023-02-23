@@ -7,6 +7,8 @@ import { IconContext } from 'react-icons';
 import { Link } from 'react-router-dom';
 import "../App.css"
 import { useSelector } from 'react-redux';
+import NavSearch from './NavSearch';
+
 
 const NavigationBar: React.FC = () => {
   const [expanded, setExpanded] = useState(false);
@@ -23,10 +25,11 @@ const NavigationBar: React.FC = () => {
             <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/products">Products</Nav.Link>
             <Nav.Link onClick={() => setExpanded(false)} as={Link} to="./members">Members</Nav.Link>
           </Nav>
-          <Form className="d-inline-flex search">
+          {/* <Form className="d-inline-flex search">
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
-          </Form>
+          </Form> */}
+          < NavSearch />
             <Row>
               <Col xs={8} lg={6} md={10} className="cart">
                 <IconContext.Provider value={{ size: '2.5rem', color: 'black' }}>

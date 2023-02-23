@@ -32,7 +32,7 @@ const Cart: React.FC = () => {
   return (
     <Container >
       <h5>Your Cart</h5>
-      {CartItems&&CartItems.map((item: any, index: number) =>
+      {CartItems&&CartItems.map((item: {id: string, imageUrl: string, price: number, quantity: number, name: string}, index: number) =>
       <Row 
         style={{height: "8rem", background:"#E6E3EB",marginBottom: 2}}
         key={index}>

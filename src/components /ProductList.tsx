@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, Container, Image, OverlayTrigger, Popover, Row } from 'react-bootstrap';
+import { Container, Image, Row } from 'react-bootstrap';
 import "../App.css"
 import {TrendingBooks, classicBooks} from './Products';
 import Slider from 'react-slick';
@@ -53,7 +53,7 @@ const ProductList: React.FC = () => {
       <Row>
         <h6 style={{ textAlign: 'center' }}>Trending Books</h6>
         <Slider {...settings} >
-          {TrendingBooks.map((product, index) => (
+          {TrendingBooks.map((product:{OLID: string, imageUrl: string, author: string, price: number, name: string, description: string}, index:number) => (
           <Container key={index} style={{width: "5rem", height: "auto"}} >
             <Link to={`/details/${product.OLID}`}>
               <Image fluid

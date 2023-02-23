@@ -11,15 +11,14 @@ const Details: React.FC = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: any) => state.cart.value)
   const id = useParams().id
-  const displayBook = bookInventroy.filter(book => book.OLID === id)[0]
+  const displayBook = bookInventroy.filter((book: {OLID: string, imageUrl: string, author: string, price: number, name: string, description: string}) => book.OLID === id)[0]
   const OLID = displayBook.OLID
   
   console.log(cartItems)
   const addToCart = (): void => {
-    let existItem = cartItems.filter((element: any) => element.id === OLID)
+    let existItem = cartItems.filter((element: {id: string, imageUrl: string, price: number, quantity: number, name: string}) => element.id === OLID)
     if (existItem.length > 0) {
       const selectBook = existItem[0]
-      console.log(selectBook)
       dispatch(updateItem({...selectBook, quantity: selectBook.quantity + 1}))
     } else {
       dispatch(addItem({id: displayBook.OLID, name: displayBook.name, imageUrl: displayBook.imageUrl, quantity: 1, price: displayBook.price }))

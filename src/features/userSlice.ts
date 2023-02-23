@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface UserStateValue {
   email: string | null;
@@ -12,10 +12,10 @@ const userSlice = createSlice({
   name: "User", 
   initialState, 
   reducers: {
-    login: (state, action) => {
+    login: (state: UserState, action: PayloadAction<UserStateValue>) => {
       state.value = action.payload;
     },
-    logout: (state, action) => {
+    logout: (state: UserState) => {
       state = initialState;
     }
   }

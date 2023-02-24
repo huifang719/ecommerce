@@ -139,8 +139,29 @@ const bookInventroy : Product[] = [
     description: "In this rom-com about rom-coms, in the spirit of Kasie West and Jenn Bennett, a hopeless romantic teen attempts to secure a happily-ever-after moment with her forever crush, but finds herself reluctantly drawn to the boy next door.",
     imageUrl:'https://covers.openlibrary.org/b/id/11182600-L.jpg'
   },  
+  {
+    OLID: "OL26211555M",
+    name: "The Magic Of Thinking Big",
+    author: "David J. Schwartz",
+    price: 24.99,
+    description: "With more than six million copies sold worldwide, David Schwartz's timeless guide and best-selling phenomenon, The Magic of Thinking Big, is now available for the first time as an unabridged audio edition.Millions of people around the world have improved their lives through the timeless advice David Schwartz offers in The Magic of Thinking Big. In this best-selling audiobook, Schwartz proves you don't need innate talent to become successful, but you do need to understand the habit of thinking and behaving in ways that will get you there.Filled with easy-to-understand advice, this unabridged audio edition - perfect for gift giving - will put you on the road to changing the way you think, helping you work better, manage smarter, earn more money, achieve your goals, and, most importantly, live a fuller, happier life.",
+    imageUrl:'https://covers.openlibrary.org/b/id/7892538-L.jpg'},
+    {
+      OLID: "OL16600499M",
+      name: "The house of the four winds",
+      author: "John Buchan",
+      price: 24.99,
+      description: "A (mis)adventure, which combines an old Scotsman, a British MP and others in a youth-led royalist revolution in Mittle Europe. Complete with a circus elephant, this is a fun read, but definitely inferior to Buchan's more famous works.",
+      imageUrl:'https://covers.openlibrary.org/b/id/12668077-L.jpg'},
 ]
 const classicBooks: Product[] = [
+  {
+    OLID: "OL16600499M",
+    name: "The house of the four winds",
+    author: "John Buchan",
+    price: 24.99,
+    description: "A (mis)adventure, which combines an old Scotsman, a British MP and others in a youth-led royalist revolution in Mittle Europe. Complete with a circus elephant, this is a fun read, but definitely inferior to Buchan's more famous works.",
+    imageUrl:'https://covers.openlibrary.org/b/id/12668077-L.jpg'},
   {
     OLID: "OL37828206M",
     name: "A Dog's Purpose",
@@ -284,6 +305,13 @@ const TrendingBooks: Product[] = [
     description: "In this rom-com about rom-coms, in the spirit of Kasie West and Jenn Bennett, a hopeless romantic teen attempts to secure a happily-ever-after moment with her forever crush, but finds herself reluctantly drawn to the boy next door.",
     imageUrl:'https://covers.openlibrary.org/b/id/11182600-L.jpg'
   },  
+  {
+    OLID: "OL26211555M",
+    name: "The Magic Of Thinking Big",
+    author: "David J. Schwartz",
+    price: 24.99,
+    description: "With more than six million copies sold worldwide, David Schwartz's timeless guide and best-selling phenomenon, The Magic of Thinking Big, is now available for the first time as an unabridged audio edition.Millions of people around the world have improved their lives through the timeless advice David Schwartz offers in The Magic of Thinking Big. In this best-selling audiobook, Schwartz proves you don't need innate talent to become successful, but you do need to understand the habit of thinking and behaving in ways that will get you there.Filled with easy-to-understand advice, this unabridged audio edition - perfect for gift giving - will put you on the road to changing the way you think, helping you work better, manage smarter, earn more money, achieve your goals, and, most importantly, live a fuller, happier life.",
+    imageUrl:'https://covers.openlibrary.org/b/id/7892538-L.jpg'},
 ];
 
 interface Product {

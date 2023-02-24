@@ -1,18 +1,29 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {value: []}
+interface Item {
+  id: string | null;
+  name: string | null;
+  author: string | null; 
+  cover: string | null;
+}
+interface SearchState {
+  value: Item []
+}
+
+const initialState: SearchState  = {value: []}
 
 const searchSlice = createSlice({
   name: "search", 
   initialState, 
   reducers: {
-    showResult: (state, action) => {
+    showResult: (state: SearchState, action: PayloadAction<Item []>) => {
       state.value = action.payload; 
     }, 
-    reset: (state, action) => {
+    reset: (state: SearchState) => {
       state = initialState;
     }
   }
 })
 
+export const { showResult } = searchSlice.actions;
 export default searchSlice; 

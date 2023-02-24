@@ -7,7 +7,10 @@ import { removeItem, updateItem } from '../features/cartSlice';
 const Cart: React.FC = () => {
   const dispatch = useDispatch()
   const CartItems = useSelector((state: any) => state.cart.value)
-  const totalPrice = CartItems.reduce((total: number, item: any) => total + item.quantity * item.price, 0)
+  const totalPrice = CartItems
+                      .reduce((total: number, item: any) => total + item.quantity * item.price, 0)
+                      .toFixed(2)
+
 
   const handleRemove = (index: number) : void => {
     const id = CartItems[index].id
@@ -25,7 +28,7 @@ const Cart: React.FC = () => {
   }
 
   const handleAddition = (index: number) : void => {
-    const updatedBook = {...CartItems[index], quantity: CartItems[index].quantity+1 }
+    const updatedBook = {...CartItems[index], quantity: CartItems[index].quantity + 1 }
     dispatch(updateItem(updatedBook))
   }
 
@@ -52,6 +55,7 @@ const Cart: React.FC = () => {
           xs={2} lg={5} md={5}
           className='d-inline-flex align-self-center'>
           <FaMinus className='align-self-center' onClick={()=> handleDeduction(index) } />
+          {/* <Input /> */}
           <h5>{item.quantity}</h5>
           <FaPlus className='align-self-center' onClick={()=> handleAddition(index)} />
         </Col>

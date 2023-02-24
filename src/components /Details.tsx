@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { bookInventroy } from './Products';
@@ -13,6 +13,17 @@ const Details: React.FC = () => {
   const id = useParams().id
   const displayBook = bookInventroy.filter((book: {OLID: string, imageUrl: string, author: string, price: number, name: string, description: string}) => book.OLID === id)[0]
   const OLID = displayBook.OLID
+
+  useEffect(()=> {
+    fetch(`http://openlibrary.org/search.json?q=${id}`)
+        .then(res => res.json())
+        .then(res => {
+          // get the book information
+          console.log(res.docs)
+          
+        })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   
   console.log(cartItems)
   const addToCart = (): void => {
